@@ -11,8 +11,6 @@
    pointer-events: none;
    opacity: 0;
    transition: all ease-in-out 0.5s;
-   
-   
 }
 .modal.active{
    opacity: 1;
@@ -24,7 +22,6 @@
    transition: all ease-in-out 0.5s;
    padding: 30px 10px;
    border-radius: 10px;
-
 }
 .modal_content.active{
  transform: scale(1);
@@ -37,7 +34,6 @@
    display: flex;
    justify-content: end;
 }
-
 .grids_wrapper{
    display: flex;
    align-items: center;
@@ -47,8 +43,6 @@
    align-items: center;
    justify-content: space-around;
 }
-
-
 .grids_wrapper{
    display: flex;
    align-items: center;
@@ -95,7 +89,6 @@
 .remain_wrapper{
    width: 100%;
 }
-
 .remain{
    border-bottom: 1px solid black;
    padding: 5px 20px;
@@ -103,16 +96,13 @@
    text-align: left;
    cursor: move;
 }
-
-
-
-/* .
-
 input{
    position: absolute;
-   top: 20px;
-   left: 30px;
-   padding: 10px;
+   top: 10px;
+   left: 25px;
+   width: 200px;
+   padding: 5px;
    border: none;
    outline: none;
-} */
+   border-radius: 5px;
+}

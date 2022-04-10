@@ -14,6 +14,9 @@ const reducer = (state = defaultColumns, action) => {
  switch (action.type) {
   case 'delete':
     return {...state, columns: state.columns.filter((el)=> el !== action.payload)}
+  case 'add':
+    return {...state, columns: [...state.columns, action.payload]}
+  
 
 
   default:
