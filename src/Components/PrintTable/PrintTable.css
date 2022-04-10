@@ -1,0 +1,26 @@
+.table_wrapper{
+   padding-top: 30px;
+}
+.columns{
+ display: flex;
+ justify-content: space-around;
+ text-align: center;
+ background-color: rgb(246, 246, 246);
+ font-weight: 400;
+} 
+.columns p{
+   border: 1px solid black;
+   width: 100%;
+   padding: 15px 0;
+}
+.title{
+ background-color: rgb(157, 255, 222);
+ text-transform: uppercase;
+ font-size: 18px;
+ font-weight: 600;
+}
+.warning{
+   text-align: center;
+   font-size: 25px;
+   padding-top: 20px;
+}

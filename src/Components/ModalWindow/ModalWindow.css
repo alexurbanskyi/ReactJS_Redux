@@ -1,0 +1,118 @@
+.modal{
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: rgb(155, 155, 155);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   pointer-events: none;
+   opacity: 0;
+   transition: all ease-in-out 0.5s;
+   
+   
+}
+.modal.active{
+   opacity: 1;
+   pointer-events: all;
+}
+.modal_content{
+   background-color: rgb(255, 255, 255);
+   transform: scale(0.3);
+   transition: all ease-in-out 0.5s;
+   padding: 30px 10px;
+   border-radius: 10px;
+
+}
+.modal_content.active{
+ transform: scale(1);
+}
+.modal_title{
+   text-align: center;
+   border-bottom: 2px solid black;
+}
+.btn_holder{
+   display: flex;
+   justify-content: end;
+}
+
+.grids_wrapper{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   padding: 20px 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+
+.grids_wrapper{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   padding: 20px 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+.grids{
+   padding: 20px;
+   font-size: 20px;
+   text-align: center;
+   border-radius: 10px;
+   width: 250px;
+   height: 400px;
+   margin: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-color: rgb(223, 219, 219);
+   position: relative;
+}
+.added{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   border-bottom: 1px solid black;
+   padding: 5px 20px;
+}
+.added_wrapper{
+ width: 100%;
+}
+.delete{
+   font-size: 20px;
+   transition: all ease-in-out 0.3s;
+}
+.delete:hover{
+   color: red;
+   cursor: pointer;
+}
+.remain_wrapper{
+   width: 100%;
+}
+
+.remain{
+   border-bottom: 1px solid black;
+   padding: 5px 20px;
+   width: 100%;
+   text-align: left;
+   cursor: move;
+}
+
+
+
+/* .
+
+input{
+   position: absolute;
+   top: 20px;
+   left: 30px;
+   padding: 10px;
+   border: none;
+   outline: none;
+} */
