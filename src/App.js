@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import ModalWindow from './Components/ModalWindow/ModalWindow';
 import MyButton from './Components/MyButton/MyButton';

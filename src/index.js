@@ -16,9 +16,6 @@ const reducer = (state = defaultColumns, action) => {
     return {...state, columns: state.columns.filter((el)=> el !== action.payload)}
   case 'add':
     return {...state, columns: [...state.columns, action.payload]}
-  
-
-
   default:
     return state
  }
