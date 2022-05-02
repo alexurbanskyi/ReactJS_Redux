@@ -23,7 +23,7 @@ const remainedColumns = allColumns.filter(i => columns.indexOf(i) < 0);
 
 // список колонок відфільтрований по значенню input
 let filtredGrids =  remainedColumns.filter((el)=>el.includes(value));
-console.log(filtredGrids);
+// console.log(filtredGrids);
 
 // створення функціії за допомогою хука useDispath
 const dispatch = useDispatch()
@@ -31,6 +31,7 @@ const dispatch = useDispatch()
 //  action для видалення колонки
 const deleteColumns = (el) => {
    dispatch({type:'delete', payload: el });
+   // console.log('delet', el)
  }
 
 //  action для додавання колонки
@@ -43,6 +44,7 @@ const addColumns = (el) => {
    setDragItem(item)
  }
 
+ 
   return (
    <div className={modalShow ? 'modal active' : 'modal'}>
       <div className={modalShow ? 'modal_content active' : 'modal_content'}>

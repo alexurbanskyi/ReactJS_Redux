@@ -14,7 +14,7 @@ const tableData = [
       fuel: 'gas',
       transmission: 'manual',
       brand: 'Audi',
-      price: 10000,
+      price: 16000,
       year: 2014,
       'road accident': 'false',
       tank: 40 
