@@ -1,0 +1,65 @@
+.modal{
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: rgb(155, 155, 155);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   pointer-events: none;
+   opacity: 0;
+   transition: all ease-in-out 0.5s;
+   z-index: 1000;
+}
+.modal.active{
+   opacity: 1;
+   pointer-events: all;
+}
+.modal_content{
+   background-color: rgb(255, 255, 255);
+   transform: scale(0.3);
+   transition: all ease-in-out 0.5s;
+   padding: 30px 10px;
+   border-radius: 10px;
+}
+.modal_content.active{
+ transform: scale(1);
+}
+.btn-add-holder{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+.form-title{
+   font-size: 20px;
+   text-align: center;
+   padding: 5px;
+   border-bottom: 2px solid black;
+}
+.form-input{
+   width: 200px;
+   padding: 5px;
+   border: none;
+   outline: none;
+   border-bottom: 1px solid black;
+}
+.input-holder{
+   display: flex;
+   padding: 10px 0;
+}
+.form-item{
+   text-transform: uppercase;
+   font-size: 20px;
+   margin-right: 10px;
+}
+.form-select{
+   width: 130px;
+}
+.input-chekbox{
+   margin: 20px 0;
+}
+.input-chekbox{
+   margin-right: 10px;
+}

@@ -1,4 +1,4 @@
-const tableData = [
+const Data = [
    {
       color: 'red',
       fuel: 'diesel',
@@ -41,4 +41,4 @@ const tableData = [
     },
    
 ]
-export default tableData;
+export default Data;

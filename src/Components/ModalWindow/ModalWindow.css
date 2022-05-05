@@ -97,7 +97,7 @@
    text-align: left;
    cursor: move;
 }
-input{
+.input-search{
    position: absolute;
    top: 10px;
    left: 25px;

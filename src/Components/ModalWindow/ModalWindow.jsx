@@ -3,9 +3,9 @@ import MyButton from '../MyButton/MyButton'
 import { v4 as uuidv4 } from 'uuid';
 import './ModalWindow.css'
 import { useDispatch, useSelector } from 'react-redux';
-import tableData from '../../Data/data';
+// import tableData from '../../Data/data';
 
-function ModalWindow({modalShow, setModalShow}) {
+function ModalWindow({modalShow, setModalShow, tableData}) {
 // стан для елемента який перетягуємо
 const [dragItem, setDragItem] = useState('');
 
@@ -59,7 +59,7 @@ const addColumns = (el) => {
                  <p className={'warning'}>All columns added</p> 
                  :
                   <div  className='remain_wrapper'>
-                     <input className='input' placeholder='Search' value={value} onChange={(e)=>setValue(e.target.value)}></input>
+                     <input className='input-search' placeholder='Search' value={value} onChange={(e)=>setValue(e.target.value)}></input>
                      {(filtredGrids.length === 0) 
                      ?  
                      <p className={'warning'}>Columns not found</p> 

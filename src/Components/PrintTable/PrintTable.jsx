@@ -1,24 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import tableData from '../../Data/data';
 import { v4 as uuidv4 } from 'uuid';
 import './PrintTable.css'
 import { AiOutlineCaretDown, AiOutlineCaretUp} from "react-icons/ai";
 import ModalBrandInfo from '../ModalBrandInfo/ModalBrandInfo';
 
-function PrintTable() {
-  
+
+function PrintTable({ tableData, setTableData}) {
 //  отримумо значення из state  за допомогою хука
 const columns = useSelector(state => state.columns)
 
-const defaultSort =  [...tableData].sort((a,b) =>
+const [sortedData, setSortedData] = useState(tableData)
+const [activeBtn, setActiveBtn]  = useState('up0')
+const [carInfo, setCarInfo] = useState({});
+
+
+useEffect(()=>{
+  const defaultSort =  [...tableData].sort((a,b) =>
 {
   if (a[columns[0]] < b[columns[0]]) return -1
 })
+setSortedData(defaultSort)
+},[tableData])
 
-const [sortedData, setSortedData] = useState(defaultSort)
-const [activeBtn, setActiveBtn]  = useState('up0')
-const [carInfo, setCarInfo] = useState({});
 
 
 const sortUp = (columnsName, arr) => {
@@ -37,8 +41,6 @@ const sortDown = (columnsName, arr) => {
   setSortedData(sortData)
 }
 
-
-
 function getCarInfo(e){
   console.log(e.currentTarget.innerText)
   console.log(tableData)
@@ -46,6 +48,8 @@ function getCarInfo(e){
   console.log('find', brandInfo)
   if (brandInfo) setCarInfo(brandInfo)
 }
+
+
 
 return (
   <>
@@ -81,9 +85,9 @@ return (
           </div>)
         }
         <ModalBrandInfo carInfo={carInfo} setCarInfo={setCarInfo}/>
+      
       </div>
     }
-
   </>
   )
 }
