@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import ModalForm from './Components/ModalForm/ModalForm';
 import ModalWindow from './Components/ModalWindow/ModalWindow';
@@ -12,7 +12,12 @@ function App() {
   const [modalShow, setModalShow] = useState(false);
   const [modalFormShow, setModalFormShow] = useState(false);
   const [tableData, setTableData] = useState(Data)
+
+  useEffect(()=>{
+   
+  },[])
   
+
   return (
     <div className="App">
       <ModalWindow

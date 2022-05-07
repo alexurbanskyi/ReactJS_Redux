@@ -4,7 +4,7 @@ import './ModalBrandInfo.css'
 
 function ModalBrandInfo({carInfo, setCarInfo}) {
   const fields = Object.keys(carInfo)
-  console.log('fields', fields);
+  
 
   return (
    <div className={(Object.keys(carInfo).length) ? 'brand active-brand' : 'brand'}>

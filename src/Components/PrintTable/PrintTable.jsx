@@ -42,10 +42,7 @@ const sortDown = (columnsName, arr) => {
 }
 
 function getCarInfo(e){
-  console.log(e.currentTarget.innerText)
-  console.log(tableData)
   let brandInfo = tableData.find(({brand})=> brand == e.currentTarget.innerText)
-  console.log('find', brandInfo)
   if (brandInfo) setCarInfo(brandInfo)
 }
 

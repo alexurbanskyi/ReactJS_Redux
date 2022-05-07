@@ -32,6 +32,14 @@
  width: 100%;
  padding: 15px 0;
 }
+.btn-sort-wrapper{
+   position: absolute;
+   right: 5px;
+   top: 6px;
+   display: flex;
+   flex-direction: column;
+
+}
 .btn-sort{
    background: rgb(77, 234, 182);
    padding: 0;
@@ -47,14 +55,7 @@
 .btn-sort:hover{
    background: rgb(103, 197, 165);
 }
-.btn-sort-wrapper{
-   position: absolute;
-   right: 5px;
-   top: 6px;
-   display: flex;
-   flex-direction: column;
 
-}
 .active-sort{
    background: rgb(244, 186, 186);
 }

@@ -63,3 +63,40 @@
 .input-chekbox{
    margin-right: 10px;
 }
+
+.required{
+   display: none;
+}
+
+.incorrect-year{
+   display: none;
+}
+.incorrect-price{
+   display: none;
+}
+.incorrect-tank{
+   display: none;
+}
+
+
+.warning-message{
+   display: block;
+   padding: 0 0 15px 0;
+   color: red;
+   font-size: 12px;
+}
+
+
+.wrong{
+   color: red;
+}
+.wrong .form-input::placeholder{
+   color: red;
+}
+option:disabled{
+   color: red;
+}
+.wrong input{
+   border-bottom: 1px solid red;
+   color: red;
+}
