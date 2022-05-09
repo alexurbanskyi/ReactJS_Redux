@@ -10,9 +10,9 @@ function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
    const [year, setYear] = useState('') 
    const [tank, setTank] = useState('') 
    const [transmission, setTransmission] = useState('')
-   const [fuel, setFuel] = useState('');
+   const [fuel, setFuel] = useState('')
    const [accident, setAccident] = useState(false);
-
+   
    const required = document.querySelector('.required');
    const brandClass = document.querySelector('.brand-input');
    const priceClass = document.querySelector('.price-input');
@@ -45,6 +45,7 @@ function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
       incorrectPrice.classList.remove('warning-message')
       incorrectYear.classList.remove('warning-message')
       incorrectTank.classList.remove('warning-message')
+      console.log('trans',transmission)
    }
 
    function checkRequiredValue(element, elementStyle){
@@ -167,16 +168,16 @@ function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
             </div>            
             <div className='input-holder'>
                <h2 className='form-item'>transmission</h2>
-               <select className='form-select' onChange={(e)=>setTransmission(e.target.value)}>
-                  <option disabled="disabled" selected="selected">car transmission</option>
+               <select className='form-select'  value={transmission} defaultValue="" onChange={(e)=>setTransmission(e.target.value)}>
+                  <option value="" disabled >car transmission</option>
                   <option value="manual">manual</option>
                   <option value="automatic" >automatic</option>
                </select>
             </div>
             <div className='input-holder  fuel-select'>
                <h2 className='form-item'>fuel*</h2>
-               <select className='form-select'  onChange={(e)=>setFuel(e.target.value)}>
-                  <option disabled="disabled"  selected="selected">fuel type</option>
+               <select className='form-select' value={fuel} defaultValue=''  onChange={(e)=>setFuel(e.target.value)}>
+                  <option value=''  disabled>fuel type</option>
                   <option value="gas">gas</option>
                   <option value="diesel" >diesel</option>
                </select>
