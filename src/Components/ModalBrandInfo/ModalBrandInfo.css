@@ -14,12 +14,21 @@
    justify-content: center;
 }
 .brand-close{
-   position: absolute;
+   font-size: 18px;
+   transition: none;
+}
+.edit-btn{
+   font-size: 18px;
+   transition: none;
+}
+.wrapper-button{
+    position: absolute;
    bottom: 40px;
    right: 50%;
    font-size: 18px;
    transition: none;
    transform: translateX(50%);
+
 }
  .brand-info{
    background-color: white;
@@ -41,4 +50,14 @@
 .fields-content{
    font-size: 25px;
    text-transform: uppercase;
+}
+
+.input-edit{
+   width: 200px;
+   padding: 5px;
+   border: none;
+   outline: none;
+   border-bottom: 1px solid black;
+   text-align: center;
+   font-size: 20px;
 }

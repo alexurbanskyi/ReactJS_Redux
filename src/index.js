@@ -6,7 +6,7 @@ import App from './App';
 
 // створення початкових даних полів колонок
 const defaultColumns = {
-  columns: ['brand', 'color', 'year']
+  columns: ['brand', 'price', 'fuel']
 }  
 
 // створення reducer

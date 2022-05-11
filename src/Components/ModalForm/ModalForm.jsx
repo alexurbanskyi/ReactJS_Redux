@@ -147,8 +147,8 @@ function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
             </div>
          </div>
          <div className='btn-add-holder'>
-            <MyButton onClick={()=> clearForm()}>Cancel</MyButton>
-            <MyButton onClick={ () => validate()}>Add Car</MyButton>
+            <MyButton onClick={() => clearForm()}>Cancel</MyButton>
+            <MyButton onClick={() => validate()}>Add Car</MyButton>
          </div>
       </div>
    </div>

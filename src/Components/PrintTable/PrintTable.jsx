@@ -13,10 +13,11 @@ const columns = useSelector(state => state.columns)
 const [sortedData, setSortedData] = useState(tableData)
 const [activeBtn, setActiveBtn]  = useState('up0')
 const [carInfo, setCarInfo] = useState({});
-
+const [carIndex, setCarIndex] = useState(null);
+const [brandShow, setBrandShow] = useState(false)
 
 useEffect(()=>{
-  const defaultSort =  [...tableData].sort((a,b) =>
+  const defaultSort =  tableData.sort((a,b) =>
 {
   if (a[columns[0]] < b[columns[0]]) return -1
 })
@@ -24,9 +25,8 @@ setSortedData(defaultSort)
 },[tableData])
 
 
-
 const sortUp = (columnsName, arr) => {
-  const sortData = [...arr].sort((a,b) =>
+  const sortData = arr.sort((a,b) =>
   {
     if (a[columnsName] < b[columnsName]) return -1
   })
@@ -34,19 +34,12 @@ const sortUp = (columnsName, arr) => {
 }
 
 const sortDown = (columnsName, arr) => {
-  const sortData = [...arr].sort((a,b) =>
+  const sortData = arr.sort((a,b) =>
   {
     if (a[columnsName] > b[columnsName]) return -1
   })
   setSortedData(sortData)
 }
-
-function getCarInfo(e){
-  let brandInfo = tableData.find(({brand})=> brand == e.currentTarget.innerText)
-  if (brandInfo) setCarInfo(brandInfo)
-}
-
-
 
 return (
   <>
@@ -76,12 +69,16 @@ return (
           }
         </div>
         {
-          sortedData.map((item)=>
-          <div className={'columns'} key={uuidv4()} >
-              {columns.map((el)=> <p key={uuidv4()} onClick={(e)=> getCarInfo(e)}>{item[el]}</p>)}
+          sortedData.map((item, index)=>
+          <div className={'columns'} key={uuidv4() }onClick={(e)=> {
+            setCarInfo(item)
+            setCarIndex(index)
+            setBrandShow(true)
+            }}  >
+              {columns.map((el)=> <p key={uuidv4()}>{item[el]}</p>)}
           </div>)
         }
-        <ModalBrandInfo carInfo={carInfo} setCarInfo={setCarInfo}/>
+        <ModalBrandInfo carInfo={carInfo} setCarInfo={setCarInfo} tableData={tableData} setTableData={setTableData} carIndex={carIndex} brandShow={brandShow} setBrandShow={setBrandShow}/>
       
       </div>
     }
