@@ -3,20 +3,21 @@ import MyButton from '../MyButton/MyButton'
 import { v4 as uuidv4 } from 'uuid';
 import './ModalWindow.css'
 import { useDispatch, useSelector } from 'react-redux';
-// import tableData from '../../Data/data';
 
-function ModalWindow({modalShow, setModalShow, tableData}) {
+function ModalWindow() {
 // стан для елемента який перетягуємо
 const [dragItem, setDragItem] = useState('');
 
 // стан для input
 const [value, setValue] = useState('');
-   
+
 //  отримумо значення из state  за допомогою хука (додані колонки)
 const columns = useSelector(state => state.columns);
+const modalGrid = useSelector(state => state.modalGrid)
+const tableData = useSelector(state => state.tableData)
 
 // отримання всіх можливих колонок
-const allColumns  = Object.keys(tableData[0]); 
+const allColumns  = Object.keys(tableData[0]).filter((item) => item != 'id'); 
 
 // отримання колонок які ще не додані (всі - default)
 const remainedColumns = allColumns.filter(i => columns.indexOf(i) < 0);
@@ -33,11 +34,14 @@ const deleteColumns = (el) => {
    dispatch({type:'delete', payload: el });
    // console.log('delet', el)
  }
-
 //  action для додавання колонки
 const addColumns = (el) => {
    dispatch({type:'add', payload: el});
  }
+
+const closeModalGrid = () =>{
+   dispatch({type:'closeModalGrid'})
+}
 
 // здерігаємо стан того елемента який ми хочемо перетягнути 
  function dragStart(e,item){
@@ -46,8 +50,8 @@ const addColumns = (el) => {
 
  
   return (
-   <div className={modalShow ? 'modal active' : 'modal'}>
-      <div className={modalShow ? 'modal_content active' : 'modal_content'}>
+   <div className={modalGrid ? 'modal active' : 'modal'}>
+      <div className={modalGrid ? 'modal_content active' : 'modal_content'}>
          <h2 className='modal_title'>
             Select columns for the grid
          </h2>
@@ -106,7 +110,8 @@ const addColumns = (el) => {
          </div>
        
          <div className='btn_holder'>
-            <MyButton onClick={()=>setModalShow(false)}>Apply</MyButton>
+            {/* !!!!!!!!!!!!!!!!!!!!!!!!! */}
+            <MyButton onClick={()=>closeModalGrid()}>Apply</MyButton>
          </div>
       </div>
    </div>

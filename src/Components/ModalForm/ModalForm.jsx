@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import MyButton from '../MyButton/MyButton'
 import './ModalForm.css'
 
-function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
+function ModalForm({setTableData, tableData}) {
    const [brand, setBrand] = useState('')
    const [color, setColor] = useState('')
    const [price, setPrice] = useState('')
@@ -18,8 +19,16 @@ function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
    const [validYear, setValidYear] = useState(true)
    const [validPrice,setValidPrice] = useState(true)
 
+   const modalAddCar = useSelector(state => state.modalAddCar)
+   const dispatch = useDispatch()
+
+   const closeModalAddCar = () =>{
+      dispatch({type:'closeModalAddCar'})
+   }
+
+
    const clearForm = () => {
-      setModalFormShow(false)
+      closeModalAddCar()
       setBrand('')
       setColor('')
       setYear('')
@@ -30,6 +39,8 @@ function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
       setAccident(false)
       setRequired(true)
    }
+
+
 
    function checkValidTank(){
       if (tank && tank <= 0){
@@ -81,8 +92,8 @@ function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
    }
  
   return (
-   <div className={modalFormShow ? 'modal active' : 'modal'}>
-      <div className={modalFormShow ? 'modal_content active' : 'modal_content'}>  
+   <div className={modalAddCar ? 'modal active' : 'modal'}>
+      <div className={modalAddCar ? 'modal_content active' : 'modal_content'}>  
          <div className='form'>
             <h1 className='form-title'>Add New Car</h1>
 
