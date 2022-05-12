@@ -1,43 +1,47 @@
 const Data = [
    {
-      color: 'red',
-      fuel: 'diesel',
-      transmission: 'automatic',
+      id: 1,
       brand: 'BMW',
+      color: 'red',
       price: 11200,
       year: 2010,
+      tank: 70,  
+      transmission: 'automatic',
+      fuel: 'diesel',
       'road accident': 'true',
-      tank: 70      
     },
     {
-      color: 'black',
-      fuel: 'gas',
-      transmission: 'manual',
+      id: 2,
       brand: 'Audi',
+      color: 'black',
       price: 16000,
       year: 2014,
+      tank: 40, 
+      transmission: 'manual',
+      fuel: 'gas',
       'road accident': 'false',
-      tank: 40 
     },
     {
-      color: 'white',
-      fuel: 'gas',
-      transmission: 'automatic',
+      id: 3,
       brand: 'Nissan',
+      color: 'white',
       price: 19000,
       year: 2019,
+      tank: 50, 
+      transmission: 'automatic',
+      fuel: 'gas',
       'road accident': 'true',
-      tank: 50  
     },
     {
-      color: 'green',
-      fuel: 'diesel',
-      transmission: 'automatic',
+      id: 4,
       brand: 'Lexus',
+      color: 'green',
       price: 15500,
       year: 2018,
+      tank: 65,  
+      transmission: 'automatic',
+      fuel: 'diesel',
       'road accident': 'false',
-      tank: 65  
     },
    
 ]

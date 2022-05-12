@@ -12,21 +12,19 @@ const columns = useSelector(state => state.columns)
 
 const [sortedData, setSortedData] = useState(tableData)
 const [activeBtn, setActiveBtn]  = useState('up0')
-const [carInfo, setCarInfo] = useState({});
-const [carIndex, setCarIndex] = useState(null);
 const [brandShow, setBrandShow] = useState(false)
+const [carId, setCarId] = useState(1)
 
 useEffect(()=>{
-  const defaultSort =  tableData.sort((a,b) =>
+  const defaultSort =  [...tableData].sort((a,b) =>
 {
   if (a[columns[0]] < b[columns[0]]) return -1
 })
 setSortedData(defaultSort)
 },[tableData])
 
-
 const sortUp = (columnsName, arr) => {
-  const sortData = arr.sort((a,b) =>
+  const sortData = [...arr].sort((a,b) =>
   {
     if (a[columnsName] < b[columnsName]) return -1
   })
@@ -34,7 +32,7 @@ const sortUp = (columnsName, arr) => {
 }
 
 const sortDown = (columnsName, arr) => {
-  const sortData = arr.sort((a,b) =>
+  const sortData = [...arr].sort((a,b) =>
   {
     if (a[columnsName] > b[columnsName]) return -1
   })
@@ -69,16 +67,17 @@ return (
           }
         </div>
         {
-          sortedData.map((item, index)=>
-          <div className={'columns'} key={uuidv4() }onClick={(e)=> {
-            setCarInfo(item)
-            setCarIndex(index)
+          sortedData.map((item)=>
+          <div id = {item.id} className={'columns'} key={uuidv4() }onClick={(e)=> 
+            {
             setBrandShow(true)
-            }}  >
+            setCarId(e.currentTarget.id)
+            }}  > 
               {columns.map((el)=> <p key={uuidv4()}>{item[el]}</p>)}
           </div>)
-        }
-        <ModalBrandInfo carInfo={carInfo} setCarInfo={setCarInfo} tableData={tableData} setTableData={setTableData} carIndex={carIndex} brandShow={brandShow} setBrandShow={setBrandShow}/>
+        } 
+        <ModalBrandInfo  tableData={tableData} setTableData={setTableData} brandShow={brandShow} setBrandShow={setBrandShow} carId={carId} />
+       
       
       </div>
     }

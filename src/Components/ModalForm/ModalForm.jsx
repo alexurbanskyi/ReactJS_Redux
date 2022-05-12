@@ -75,7 +75,7 @@ function ModalForm({modalFormShow, setModalFormShow, setTableData, tableData}) {
              
          }else{
             clearForm();
-            setTableData([...tableData,{'brand': brand, 'color': color, 'price': price, 'year': year,'tank':tank, 'transmission':transmission, 'fuel':fuel, 'road accident':`${accident}`}])
+            setTableData([...tableData,{'brand': brand, 'color': color, 'price': price, 'year': year,'tank':tank, 'transmission':transmission, 'fuel':fuel, 'road accident':`${accident}`, id : new Date().getTime() }])
             setRequired(true)
          }
    }

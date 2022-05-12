@@ -60,4 +60,39 @@
    border-bottom: 1px solid black;
    text-align: center;
    font-size: 20px;
+   text-transform: uppercase;
+}
+.brand-info-title{
+   text-align: center;
+   padding-bottom: 5px;
+   font-size: 20px;
+   border-bottom: 2px solid black;
+}
+.select-edit{
+   padding: 5px 0;
+   margin: 10px 0 0 0;
+   width: 130px;
+}
+
+.incorrect-price{
+   display: none;
+}
+.incorrect-year{
+   display: none;
+}
+.incorrect-tank{
+   display: none;
+}
+
+.required{
+   display: none;
+}
+.warning-message{
+   display: block;
+   padding: 0 0 15px 0;
+   color: red;
+   font-size: 12px;
+}
+.wrong{
+   color: red;
 }
