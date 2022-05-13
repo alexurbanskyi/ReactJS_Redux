@@ -5,6 +5,7 @@ import './ModalWindow.css'
 import { useDispatch, useSelector } from 'react-redux';
 
 function ModalWindow() {
+
 // стан для елемента який перетягуємо
 const [dragItem, setDragItem] = useState('');
 
@@ -32,7 +33,6 @@ const dispatch = useDispatch()
 //  action для видалення колонки
 const deleteColumns = (el) => {
    dispatch({type:'delete', payload: el });
-   // console.log('delet', el)
  }
 //  action для додавання колонки
 const addColumns = (el) => {
@@ -42,13 +42,10 @@ const addColumns = (el) => {
 const closeModalGrid = () =>{
    dispatch({type:'closeModalGrid'})
 }
-
 // здерігаємо стан того елемента який ми хочемо перетягнути 
  function dragStart(e,item){
    setDragItem(item)
  }
-
- 
   return (
    <div className={modalGrid ? 'modal active' : 'modal'}>
       <div className={modalGrid ? 'modal_content active' : 'modal_content'}>
@@ -81,7 +78,6 @@ const closeModalGrid = () =>{
                   </div>
                }
             </div>
-
             <div 
                className='grids'
                onDragOver= {(e)=>e.preventDefault()}
@@ -97,7 +93,8 @@ const closeModalGrid = () =>{
                   <p className={'warning'}>No added columns</p> 
                   :
                   <div className='added_wrapper'>
-                     {columns.map((item) => 
+                     {
+                        columns.map((item) => 
                            <div className='added' key={uuidv4()}>       
                               <p>{item}</p>
                               <p className='delete' onClick={(el)=>deleteColumns(item)}>x</p>
@@ -108,9 +105,7 @@ const closeModalGrid = () =>{
             </div>
 
          </div>
-       
          <div className='btn_holder'>
-            {/* !!!!!!!!!!!!!!!!!!!!!!!!! */}
             <MyButton onClick={()=>closeModalGrid()}>Apply</MyButton>
          </div>
       </div>

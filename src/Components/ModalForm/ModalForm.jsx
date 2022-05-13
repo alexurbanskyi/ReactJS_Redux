@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import MyButton from '../MyButton/MyButton'
 import './ModalForm.css'
 
-function ModalForm({setTableData, tableData}) {
+// function ModalForm({setTableData, tableData}
+function ModalForm() {
+   const modalAddCar = useSelector(state => state.modalAddCar)
+   const dispatch = useDispatch()
+
    const [brand, setBrand] = useState('')
    const [color, setColor] = useState('')
    const [price, setPrice] = useState('')
@@ -19,13 +23,13 @@ function ModalForm({setTableData, tableData}) {
    const [validYear, setValidYear] = useState(true)
    const [validPrice,setValidPrice] = useState(true)
 
-   const modalAddCar = useSelector(state => state.modalAddCar)
-   const dispatch = useDispatch()
-
    const closeModalAddCar = () =>{
       dispatch({type:'closeModalAddCar'})
    }
 
+   const addNewCar = (formData) =>{
+      dispatch({type: 'addNewCar', payload: formData})
+   }
 
    const clearForm = () => {
       closeModalAddCar()
@@ -39,8 +43,6 @@ function ModalForm({setTableData, tableData}) {
       setAccident(false)
       setRequired(true)
    }
-
-
 
    function checkValidTank(){
       if (tank && tank <= 0){
@@ -71,6 +73,7 @@ function ModalForm({setTableData, tableData}) {
          return true
       }
    }
+
    useEffect(()=>{
       checkValidTank()
       checkValidYear()
@@ -86,8 +89,8 @@ function ModalForm({setTableData, tableData}) {
              
          }else{
             clearForm();
-            setTableData([...tableData,{'brand': brand, 'color': color, 'price': price, 'year': year,'tank':tank, 'transmission':transmission, 'fuel':fuel, 'road accident':`${accident}`, id : new Date().getTime() }])
             setRequired(true)
+            addNewCar({'brand': brand, 'color': color, 'price': price, 'year': year,'tank':tank, 'transmission':transmission, 'fuel':fuel, 'road accident':`${accident}`, id : new Date().getTime()})
          }
    }
  
@@ -165,5 +168,4 @@ function ModalForm({setTableData, tableData}) {
    </div>
   )
 }
-
 export default ModalForm

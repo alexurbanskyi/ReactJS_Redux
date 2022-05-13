@@ -6,9 +6,10 @@ import { AiOutlineCaretDown, AiOutlineCaretUp} from "react-icons/ai";
 import ModalBrandInfo from '../ModalBrandInfo/ModalBrandInfo';
 
 
-function PrintTable({ tableData, setTableData}) {
+function PrintTable() {
 //  отримумо значення из state  за допомогою хука
 const columns = useSelector(state => state.columns)
+const tableData = useSelector(state => state.tableData)
 
 const [sortedData, setSortedData] = useState(tableData)
 const [activeBtn, setActiveBtn]  = useState('up0')
@@ -76,9 +77,7 @@ return (
               {columns.map((el)=> <p key={uuidv4()}>{item[el]}</p>)}
           </div>)
         } 
-        <ModalBrandInfo  tableData={tableData} setTableData={setTableData} brandShow={brandShow} setBrandShow={setBrandShow} carId={carId} />
-       
-      
+        <ModalBrandInfo  tableData={tableData} brandShow={brandShow} setBrandShow={setBrandShow} carId={carId} />
       </div>
     }
   </>

@@ -12,7 +12,6 @@ const defaultColumns = {
   modalAddCar: false,
   tableData: Data
 }  
-
 // створення reducer
 const reducer = (state = defaultColumns, action) => {
  switch (action.type) {
@@ -28,12 +27,12 @@ const reducer = (state = defaultColumns, action) => {
     return {...state, modalAddCar: true}
   case 'closeModalAddCar':
     return {...state, modalAddCar: false}
-    
+  case 'addNewCar':
+    return {...state, tableData: [...state.tableData, action.payload]}  
   default:
     return state
  }
 }
-
 // створення STORE
 const store = createStore(reducer)
 

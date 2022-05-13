@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import './ModalBrandInfo.css'
 
-function ModalBrandInfo({tableData, setTableData, brandShow, setBrandShow, carId}) {
+function ModalBrandInfo({brandShow, setBrandShow, carId}) {
 
+  const tableData = useSelector(state => state.tableData)
 
   const [edit, setEdit] = useState(false)
   const [brand, setBrand] = useState('')
@@ -15,16 +17,14 @@ function ModalBrandInfo({tableData, setTableData, brandShow, setBrandShow, carId
   const [fuel, setFuel] = useState('')
   const [accident, setAccident] = useState(false);
   const [required, setRequired] = useState(true)
-  
-  const currentYear = new Intl.DateTimeFormat('uk', {year:'numeric'}).format(new Date())  
   const [validTank, setValidTank] = useState(true)
   const [validYear, setValidYear] = useState(true)
   const [validPrice,setValidPrice] = useState(true)
-  
+  const currentYear = new Intl.DateTimeFormat('uk', {year:'numeric'}).format(new Date())  
+
   const carInfo = tableData.find((item)=> item.id == carId)
   const carIndex = tableData.findIndex((item) => item.id == carId)
   const fields = Object.keys(carInfo).filter((item) => item != 'id')
-
   useEffect(()=>{
     setBrand(carInfo.brand)
     setColor(carInfo.color)
@@ -67,35 +67,29 @@ function ModalBrandInfo({tableData, setTableData, brandShow, setBrandShow, carId
  }
  
   function validEdit(){
-
-  if (!price || !brand || !checkValidTank() || !checkValidYear() || !checkValidPrice()){
-    setRequired(false)
-    checkValidTank()
-    checkValidYear();
-    checkValidPrice()
-  }else{
-    setEdit(false)
-    setBrandShow(false)
-    tableData[carIndex].brand = brand
-    tableData[carIndex].color = color
-    tableData[carIndex].price = price
-    tableData[carIndex].year= year
-    tableData[carIndex].tank = tank
-    tableData[carIndex].transmission = transmission
-    tableData[carIndex].fuel = fuel
-    tableData[carIndex]['road accident'] = `${accident}`
-  }  
-  
-  
-  
+    if (!price || !brand || !checkValidTank() || !checkValidYear() || !checkValidPrice()){
+      setRequired(false)
+      checkValidTank()
+      checkValidYear();
+      checkValidPrice()
+    }else{
+      setEdit(false)
+      setBrandShow(false)
+      tableData[carIndex].brand = brand
+      tableData[carIndex].color = color
+      tableData[carIndex].price = price
+      tableData[carIndex].year= year
+      tableData[carIndex].tank = tank
+      tableData[carIndex].transmission = transmission
+      tableData[carIndex].fuel = fuel
+      tableData[carIndex]['road accident'] = `${accident}`
+    }  
   }
   
   return (
   <div className={brandShow ? 'brand active-brand' : 'brand'}>
-     
     <div className='wrapper-button'>
       <button className='brand-close' onClick={()=>{
-          
           setEdit(false)
           setBrandShow(false)
           
@@ -109,18 +103,17 @@ function ModalBrandInfo({tableData, setTableData, brandShow, setBrandShow, carId
     </div>
       {
         !edit ? 
-
-        <div className='brand-info'>
-          <div className='brand-info-title'>Car Info</div>
-        {
-          fields.map((item)=>
-            <div className='fields' key={uuidv4()}>
-              <p className='fields-title'>{item}:</p>
-              <p className='fields-content'>{carInfo[item]}</p>
-            </div>
-          )
-        }
-      </div>
+          <div className='brand-info'>
+            <div className='brand-info-title'>Car Info</div>
+            {
+              fields.map((item)=>
+                <div className='fields' key={uuidv4()}>
+                  <p className='fields-title'>{item}:</p>
+                  <p className='fields-content'>{carInfo[item]}</p>
+                </div>
+              )
+            }
+          </div>
       :
       <div className='brand-info'>
         <div className='brand-info-title'>Car Edit</div>
@@ -188,5 +181,4 @@ function ModalBrandInfo({tableData, setTableData, brandShow, setBrandShow, carId
   </div>
   )
 }
-
 export default ModalBrandInfo
